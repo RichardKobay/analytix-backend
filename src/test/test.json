@@ -1,0 +1,31 @@
+{
+  "tweet": {
+    "0": "Is history repeating itself...?#DONTNORMALIZEHATE https:\\/\\/t.co\\/ngG11quhmK",
+    "1": "@barackobama Thank you for your incredible grace in leadership and for being an exceptional\\u2026 https:\\/\\/t.co\\/ZuQLZpt6df",
+    "2": "Life goals. https:\\/\\/t.co\\/XIn1qKMKQl",
+    "3": "Me right now \\ud83d\\ude4f\\ud83c\\udffb https:\\/\\/t.co\\/gW55C1wrwd",
+    "4": "SISTERS ARE DOIN' IT FOR THEMSELVES! \\ud83d\\ude4c\\ud83c\\udffb\\ud83d\\udcaa\\ud83c\\udffb\\u2764\\ufe0f https:\\/\\/t.co\\/0shuUYUBEv"
+  },
+  "date_time": {
+    "0": "2017-01-12 19:52:00",
+    "1": "2017-01-11 08:38:00",
+    "2": "2017-01-11 02:52:00",
+    "3": "2017-01-11 02:44:00",
+    "4": "2017-01-10 05:22:00"
+  },
+  "negative": {
+    "0": 0.6876,
+    "1": 0.0161,
+    "2": 0.0554,
+    "3": 0.0696,
+    "4": 0.0167
+  },
+  "neutral": { "0": 0.2937, "1": 0.0458, "2": 0.5312, "3": 0.6564, "4": 0.087 },
+  "positive": {
+    "0": 0.0188,
+    "1": 0.9381,
+    "2": 0.4134,
+    "3": 0.2741,
+    "4": 0.8963
+  }
+}

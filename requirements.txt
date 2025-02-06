@@ -1,0 +1,13 @@
+python-dotenv==1.0.1
+fastapi==0.115.8
+uvicorn==0.34.0
+kaggle==1.6.17
+transformers==4.48.2
+numpy==2.2.2
+pandas==2.2.3
+scipy==1.15.1
+tiktoken==0.8.0
+protobuf==5.29.3
+torch==2.6.0
+sentencepiece==0.2.0
+tweepy==4.15.0
