@@ -1,4 +1,5 @@
 import json
+import logging
 
 import numpy as np
 import pandas as pd
@@ -10,6 +11,8 @@ from transformers import (
     AutoModelForSequenceClassification,
     XLMRobertaTokenizer,
 )
+from transformers import pipeline
+import torch
 
 
 def process_data(username: str, start_date: str, end_date: str) -> dict:
@@ -78,9 +81,17 @@ def add_sentiment_analysis(data: pd.DataFrame) -> pd.DataFrame:
         pd.DataFrame: The dataframe with the tweets and all the sentiment analysis
     """
     df = xml_roberta_base_sentiment(data)
-    # TODO -> add the concrete sentiment analysis (joy, happiness, etc.)
+    df = distilbert_sentiment(df)
     return df
 
+def distilbert_sentiment(df: pd.DataFrame) -> pd.DataFrame:
+    sentiments = []
+    for tweet in df["tweet"]:
+        sentiment = process_data_with_distilbert(tweet)
+        sentiments.append(sentiment)
+    
+    df["distilbert_sentiment"] = sentiments
+    return df
 
 def xml_roberta_base_sentiment(df: pd.DataFrame) -> pd.DataFrame:
     sentiments = []
@@ -88,9 +99,8 @@ def xml_roberta_base_sentiment(df: pd.DataFrame) -> pd.DataFrame:
         sentiment = process_data_with_roberta(tweet)
         sentiments.append(sentiment)
 
-    sentiment_df = pd.DataFrame(sentiments)
-    result_df = pd.concat([df, sentiment_df], axis=1)
-    return result_df
+    df["sentiment"] = sentiments
+    return df
 
 
 def preprocess_tweet(tweet: str) -> str:
@@ -102,36 +112,44 @@ def preprocess_tweet(tweet: str) -> str:
     return " ".join(new_text)
 
 
-def process_data_with_roberta(tweet: str):
+def process_data_with_roberta(tweet: str) -> str:
     MODEL = "cardiffnlp/twitter-xlm-roberta-base-sentiment"
     CACHE_DIR = ".cache/"
 
     tokenizer = XLMRobertaTokenizer.from_pretrained(MODEL, cache_dir=CACHE_DIR)
     config = AutoConfig.from_pretrained(MODEL, cache_dir=CACHE_DIR)
 
-    # PT
     model = AutoModelForSequenceClassification.from_pretrained(
         MODEL, cache_dir=CACHE_DIR
     )
     model.save_pretrained(CACHE_DIR)
 
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    model.to(device)
+
     text = tweet
     text = preprocess_tweet(text)
-    encoded_input = tokenizer(text, return_tensors="pt")
+    encoded_input = tokenizer(text, return_tensors="pt").to(device)
     output = model(**encoded_input)
-    scores = output[0][0].detach().numpy()
+    scores = output[0][0].detach().cpu().numpy()
     scores = softmax(scores)
 
     ranking = np.argsort(scores)
     ranking = ranking[::-1]
 
-    analysis = {}
-    for i in range(scores.shape[0]):
-        label = config.id2label[ranking[i]]
-        score = scores[ranking[i]]
-        analysis[label] = np.round(float(score), 4)
+    highest_label = config.id2label[ranking[0]]
+    return highest_label
 
-    return analysis
+def process_data_with_distilbert(tweet: str) -> str:
+    classifier = pipeline(
+        "text-classification",
+        model="bhadresh-savani/distilbert-base-uncased-emotion"
+    )
+
+    prediction = classifier(tweet)
+    
+    highest_score = max(prediction, key=lambda x: x['score'])
+    return highest_score['label']
 
 
 if __name__ == "__main__":
