@@ -1,5 +1,4 @@
 import json
-import logging
 
 import numpy as np
 import pandas as pd
@@ -13,6 +12,7 @@ from transformers import (
 )
 from transformers import pipeline
 import torch
+from .model_loader import tokenizer, config, model, distilbert_classifier, device
 
 
 def process_data(username: str, start_date: str, end_date: str) -> dict:
@@ -113,22 +113,7 @@ def preprocess_tweet(tweet: str) -> str:
 
 
 def process_data_with_roberta(tweet: str) -> str:
-    MODEL = "cardiffnlp/twitter-xlm-roberta-base-sentiment"
-    CACHE_DIR = ".cache/"
-
-    tokenizer = XLMRobertaTokenizer.from_pretrained(MODEL, cache_dir=CACHE_DIR)
-    config = AutoConfig.from_pretrained(MODEL, cache_dir=CACHE_DIR)
-
-    model = AutoModelForSequenceClassification.from_pretrained(
-        MODEL, cache_dir=CACHE_DIR
-    )
-    model.save_pretrained(CACHE_DIR)
-
-    device = "cuda" if torch.cuda.is_available() else "cpu"
-    model.to(device)
-
-    text = tweet
-    text = preprocess_tweet(text)
+    text = preprocess_tweet(tweet)
     encoded_input = tokenizer(text, return_tensors="pt").to(device)
     output = model(**encoded_input)
     scores = output[0][0].detach().cpu().numpy()
@@ -141,12 +126,7 @@ def process_data_with_roberta(tweet: str) -> str:
     return highest_label
 
 def process_data_with_distilbert(tweet: str) -> str:
-    classifier = pipeline(
-        "text-classification",
-        model="bhadresh-savani/distilbert-base-uncased-emotion"
-    )
-
-    prediction = classifier(tweet)
+    prediction = distilbert_classifier(tweet)
     
     highest_score = max(prediction, key=lambda x: x['score'])
     return highest_score['label']
