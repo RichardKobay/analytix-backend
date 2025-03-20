@@ -15,6 +15,20 @@ def process_datasets():
     df.to_csv("data/processed/tweets_processed.csv", index=False)
     print(df.head())
 
+def process_dataset_for_testing():
+    dataset_path = "data/raw/tweets.csv"
+    df = pd.read_csv(dataset_path)
+    df = df[['author', 'content', 'date_time']]
+    
+    usernames = df['author'].unique()
+    for idx, username in enumerate(usernames, start=1):
+        user_df = df[df['author'] == username].copy()
+        user_df.drop(columns=['author'], inplace=True)
+        user_df.rename(columns={'content': 'tweet'}, inplace=True)
+        file_index = f"{idx:02d}"
+        user_df.to_csv(f"data/processed/tweets_per_user/tweets_{username}_processed_{file_index}.csv", index=False)
+
 if __name__ == "__main__":
     download_test_datasets("mmmarchetti/tweets-dataset")
     process_datasets()
+    process_dataset_for_testing()
