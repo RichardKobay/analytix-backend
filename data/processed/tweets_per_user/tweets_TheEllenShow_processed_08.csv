@@ -1,4 +1,4 @@
-tweet,date_time
+tweet,date_time,real_sentiment,real_distilbert_sentiment
 It’s the perfect day to snuggle with a kitten and a Dalmatian. https://t.co/qaynZkHWHQ,23/01/2017 22:46
 "I played ""Go with @GEICO"" w/ my new friend Shalese. I don’t know how she got here but I know how she’s driving home… https://t.co/9zY8mr48H5",23/01/2017 21:02
 "The first step to acceptance and love is understanding. Thank you, @KatieCouric, for this powerful documentary. https://t.co/AHKZXBo2IS",23/01/2017 19:57

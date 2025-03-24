@@ -1,4 +1,4 @@
-tweet,date_time
+tweet,date_time,real_sentiment,real_distilbert_sentiment
 "my favorite face in the world ☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️ thanks for guiding me everyday 
 I miss you 
 https://t.co/FBwE2XRqTb",17/01/2017 04:18

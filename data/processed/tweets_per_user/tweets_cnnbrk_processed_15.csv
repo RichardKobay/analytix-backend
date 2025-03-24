@@ -1,4 +1,4 @@
-tweet,date_time
+tweet,date_time,real_sentiment,real_distilbert_sentiment
 British PM Theresa May commits to put final Brexit deal to a vote in both houses of the UK parliament.… https://t.co/5cCPnvCCjV,17/01/2017 13:05
 CNN/ORC Poll: Most say Russian hacking didn't change election outcome. https://t.co/RWN8CTPJN5 https://t.co/MfYCQU8Vp2,17/01/2017 11:23
 CNN/ORC poll: Most in US disapprove of Trump transition; 53% are less confident because of his actions since Nov. 8… https://t.co/eCgwmCknvx,17/01/2017 11:06

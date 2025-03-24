@@ -1,4 +1,4 @@
-tweet,date_time
+tweet,date_time,real_sentiment,real_distilbert_sentiment
 Jet lag! https://t.co/iDr3lpgrt4,17/01/2017 08:06
 Awwww thank you!!!! https://t.co/P3Dt3HgvVE,17/01/2017 08:03
 The best time! I love it there!!!! https://t.co/y70urHrF8s,17/01/2017 08:02

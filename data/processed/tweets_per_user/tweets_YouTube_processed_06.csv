@@ -1,4 +1,4 @@
-tweet,date_time
+tweet,date_time,real_sentiment,real_distilbert_sentiment
 "You must be at least 1 ½ inches tall to ride.
 
 Lego Night Ride: https://t.co/kgurndAo1D https://t.co/5xDNB04aeR",24/01/2017 02:30

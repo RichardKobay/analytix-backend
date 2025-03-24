@@ -1,4 +1,4 @@
-tweet,date_time
+tweet,date_time,real_sentiment,real_distilbert_sentiment
 "Fog as far as the eye can see #TheWeekOnInstagram
 https://t.co/CLsYaztrRB",17/01/2017 00:45
 .@KadirNelson’s tribute to Dr. Martin Luther King Jr. #MLKDay https://t.co/duzl7bHRTq,16/01/2017 18:30

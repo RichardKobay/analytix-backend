@@ -1,4 +1,4 @@
-tweet,date_time
+tweet,date_time,real_sentiment,real_distilbert_sentiment
 #WomensMarchOnWashington I'm so proud to be a woman alive during this time. Look how strong we are.  And there for… https://t.co/wuqgCEr8Al,22/01/2017 06:03
 My Journey To The Superbowl Halftime Show https://t.co/I1MGrlFfdL,18/01/2017 17:58
 "With this faith, we will be able to work together, to pray together, to struggle together, #IHaveADream",16/01/2017 17:01

@@ -1,4 +1,4 @@
-tweet,date_time
+tweet,date_time,real_sentiment,real_distilbert_sentiment
 "Tonight: @MichaelKeaton, @ninadobrev, music from @The_xx, and more! #FallonTonight",17/01/2017 13:47
 .@michaelstrahan and @BryceDHoward take on @questlove and I in an intense game of Pyramid https://t.co/dWm11VmAKj #FallonTonight,17/01/2017 12:55
 "Tonight on the show: @michaelstrahan and Bryce Dallas Howard are here, plus @BebeRexha performs! #FallonTonight",16/01/2017 14:10

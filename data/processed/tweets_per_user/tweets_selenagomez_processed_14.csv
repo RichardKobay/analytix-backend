@@ -1,4 +1,4 @@
-tweet,date_time
+tweet,date_time,real_sentiment,real_distilbert_sentiment
 "I love you, Christina. https://t.co/p2vUWvjbh0",13/08/2016 23:15
 Such a memorable show in Sydney tonight.. I'll never forget this one. Thanks for singing along with me-woke up with a sore throat 😕 I LOVE U,09/08/2016 16:23
 After years of work from so many incredible people -I'm getting so excited/emotional about our show 13 Reasons Why https://t.co/qhk6VWeFaV,03/08/2016 08:59

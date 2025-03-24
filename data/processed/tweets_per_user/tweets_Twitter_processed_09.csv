@@ -1,4 +1,4 @@
-tweet,date_time
+tweet,date_time,real_sentiment,real_distilbert_sentiment
 "@ashley_ardinger We shall dub thee: “Meme Master Ashley""",24/01/2017 00:53
 @wakandaho https://t.co/4LYgd60MC6,24/01/2017 00:13
 @ashley_ardinger Meme of the week goes to you. 🏆 https://t.co/gsjBzfDFM8,24/01/2017 00:12

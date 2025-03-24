@@ -1,4 +1,4 @@
-tweet,date_time
+tweet,date_time,real_sentiment,real_distilbert_sentiment
 "Tonight, President Obama reflects on eight years of progress. Watch the #FarewellAddress at 9 pm ET: https://t.co/ZnwTsg155B #ObamaFarewell",10/01/2017 23:44
 "In the weekly address, President Obama discusses what #Obamacare has done to improve health care. https://t.co/VdQlyrSZhx",05/11/2016 15:38
 "Let's keep working to keep our economy on a better, stronger course. https://t.co/bV2BVjyj7a",04/11/2016 22:16
